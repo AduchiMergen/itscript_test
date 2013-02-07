@@ -1,0 +1,46 @@
+[
+    {
+        "class": "RootNode",
+        "id": 0,
+        "question": "По какому поводу звоните?",
+        "type": "radio",
+        "ansvers": [
+            {
+                "value": 1,
+                "label": "Звонок по поводу проблемы качества"
+            },
+            {
+                "value": 2,
+                "label": "Вопрос по доставке"
+            },
+            {
+                "value": 3,
+                "label": "Консультация/Другое"
+            }
+        ]
+    },
+    {
+        "class": "OrderNumber",
+        "id": 1,
+        "question": "Номер заказа?",
+        "type": "text",
+        "ansvers": [
+            {
+                "value": "",
+                "label": "Номер"
+            }
+        ]
+    },
+    {
+        "class": "SomethingHappened",
+        "id": 2,
+        "question": "Что случилось?",
+        "type": "text",
+        "ansvers": [
+            {
+                "value": "",
+                "label": "Описание проблемы"
+            }
+        ]
+    }
+]

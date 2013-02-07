@@ -47,8 +47,18 @@ $(function() {
             // window.DialogView2 = new DialogView({model:new Backbone.Model(dialog1)});
         },
         ansver:function(data){
-            new DialogView({model:new Backbone.Model(data)});
+            if (data.next_dialog){
+                new DialogView({model:new Backbone.Model(data.next_dialog)});
+            }
+            if (data.result){
+                alert(data.result);
+                window.location.reload();
+            } 
+            if (data.error){
+                alert(data.error);
+            }
+
         }
     });
-    $.get("backend.php",function(data){new DialogView({model:new Backbone.Model(data)});},'json');
+    $.getJSON("backend.php",function(data){new DialogView({model:new Backbone.Model(data)});});
 });
