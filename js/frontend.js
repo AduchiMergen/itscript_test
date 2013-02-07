@@ -1,22 +1,4 @@
 $(function() {
-    var dialog = {
-        id: 0,
-        question: 'По какому поводу звоните?',
-        type: 'radio',
-        ansvers: [
-            {value:1,label:'Звонок по поводу проблемы качества'},
-            {value:2,label:'Вопрос по доставке'},
-            {value:3,label:'Консультация/Другое'}
-        ]
-    }
-    var dialog1 = {
-        id: 1,
-        question: 'Номер заказа?',
-        type: 'text',
-        ansvers: [
-            {value:'',label:'Номер'}
-        ]
-    }
     window.DialogView = Backbone.View.extend({
         template: _.template($('#dialog-template').html()),
         attributes:function(){
