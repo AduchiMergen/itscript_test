@@ -2,9 +2,10 @@ $(function() {
     window.DialogView = Backbone.View.extend({
         template: _.template($('#dialog-template').html()),
         attributes:function(){
+            title = this.model.get('title');
             return {
                 id:"dialog-message-"+this.model.get('id'),
-                title:this.model.get('title','')
+                title:(title)?title:'Client id:'+window.client_id
             };
         },
         initialize: function(){
@@ -26,7 +27,6 @@ $(function() {
         },
         work:function(){
             $.post("backend.php",this.$el.find('form').serialize(),this.ansver,'json');
-            // window.DialogView2 = new DialogView({model:new Backbone.Model(dialog1)});
         },
         ansver:function(data){
             if (data.next_dialog){
@@ -42,5 +42,9 @@ $(function() {
 
         }
     });
-    $.getJSON("backend.php",function(data){new DialogView({model:new Backbone.Model(data)});});
+    window.client_id = 5;
+    $.getJSON("backend.php",function(data){
+            window.client_id = data.session_id;
+            new DialogView({model:new Backbone.Model(data.node)});
+        });
 });
